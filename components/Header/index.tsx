@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStyletron, styled } from 'baseui'
-import { Button } from 'baseui/Button'
+import { Button } from 'baseui/button'
 import { ellipseAddress } from '../../lib/utilities'
 
 const ConnectButton = styled(Button, ({ $theme }) => ({
