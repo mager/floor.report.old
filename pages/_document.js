@@ -26,6 +26,16 @@ class FloorReport extends Document {
     return (
       <Html>
         <Head>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=G-HQ101Y0052`}
+          />
+          <script
+            async
+            dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HQ101Y0052');`,
+            }}
+          />
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className="_styletron_hydrate_"

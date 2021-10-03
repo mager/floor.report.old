@@ -31,6 +31,7 @@
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-ga": "^3.3.0",
     "react-use-etherscan": "^0.1.0-alpha.4",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.1",

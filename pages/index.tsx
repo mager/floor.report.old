@@ -9,6 +9,7 @@ import { StateType, ActionType } from '../types'
 import { Spinner } from 'baseui/spinner'
 import Header from '../components/Header'
 import Collections from '../components/Collections'
+
 const INFURA_ID = '9cc12c897b9e4f88b84f8d0b14ede1d3'
 
 const providerOptions = {
@@ -197,7 +198,6 @@ export const Home = (): JSX.Element => {
         dispatch({ type: 'START_FETCHING_INFO' })
         const response = await fetch(`/api/info?address=${address}`)
         const info = await response.json()
-
         dispatch({
           type: 'SET_INFO',
           info,
