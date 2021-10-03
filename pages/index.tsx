@@ -5,7 +5,6 @@ import Head from 'next/head'
 import { useCallback, useEffect, useReducer } from 'react'
 import WalletLink from 'walletlink'
 import Web3Modal from 'web3modal'
-import { getChainData } from '../lib/utilities'
 import { StateType, ActionType } from '../types'
 import { Spinner } from 'baseui/Spinner'
 import Header from '../components/Header'
@@ -99,13 +98,9 @@ function reducer(state: StateType, action: ActionType): StateType {
   }
 }
 
-const Logo = () => {
-  return <h1>floor.report 🧹</h1>
-}
-
 export const Home = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { provider, web3Provider, address, chainId, info, loading } = state
+  const { provider, web3Provider, address, info, loading } = state
   const connect = useCallback(async function () {
     // This is the initial `provider` that is returned when
     // using web3Modal to connect. Can be MetaMask or WalletConnect.

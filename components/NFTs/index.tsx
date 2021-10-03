@@ -10,7 +10,7 @@ type NFTsProps = {
   collection: Collection
 }
 const NFTs = ({ collection }: NFTsProps) => {
-  const [css, theme] = useStyletron()
+  const [css] = useStyletron()
 
   if (!collection.nfts && !collection.nfts.length) {
     return <p>No NFTs found</p>
@@ -21,31 +21,32 @@ const NFTs = ({ collection }: NFTsProps) => {
       <Accordion
         overrides={{
           Root: {
-            style: ({ $theme }) => ({
+            style: () => ({
               padding: 0,
               margin: 0,
             }),
           },
           Header: {
-            style: ({ $theme }) => ({
+            style: () => ({
               padding: '0.5rem 0',
               backgroundColor: 'transparent',
             }),
           },
           ToggleIcon: {
-            component: ({ $expanded, $theme }) =>
+            component: ({ $expanded }) =>
               $expanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />,
           },
           Content: {
-            style: ({ $theme }) => ({
+            style: () => ({
               padding: '0.5rem',
             }),
           },
         }}
       >
-        {collection.nfts.map((nft) => {
+        {collection.nfts.map((nft, i) => {
           return (
             <Panel
+              key={i}
               title={
                 <div
                   className={css({

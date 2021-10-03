@@ -1,7 +1,11 @@
 import React from 'react'
-import { useStyletron } from 'baseui'
+import { useStyletron, styled } from 'baseui'
 import { Button } from 'baseui/Button'
 import { ellipseAddress } from '../../lib/utilities'
+
+const ConnectButton = styled(Button, ({ $theme }) => ({
+  height: $theme.sizing.scale600,
+}))
 
 const Header = ({ address, web3Provider, connect, disconnect }) => {
   const [css, theme] = useStyletron()
@@ -37,12 +41,7 @@ const Header = ({ address, web3Provider, connect, disconnect }) => {
           {ellipseAddress(address)}
         </p>
         {!web3Provider ? (
-          <Button
-            className={css({
-              height: '20px',
-            })}
-            onClick={connect}
-          >
+          <ConnectButton onClick={connect}>
             <span
               className={css({
                 fontSize: theme.sizing.scale500,
@@ -51,14 +50,9 @@ const Header = ({ address, web3Provider, connect, disconnect }) => {
             >
               Connect Wallet
             </span>
-          </Button>
+          </ConnectButton>
         ) : (
-          <Button
-            className={css({
-              height: '20px',
-            })}
-            onClick={disconnect}
-          >
+          <ConnectButton onClick={disconnect}>
             <span
               className={css({
                 fontSize: theme.sizing.scale500,
@@ -67,7 +61,7 @@ const Header = ({ address, web3Provider, connect, disconnect }) => {
             >
               Logout
             </span>
-          </Button>
+          </ConnectButton>
         )}
       </div>
     </header>

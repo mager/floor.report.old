@@ -1,15 +1,13 @@
 import React from 'react'
 import { useStyletron } from 'baseui'
 import { Trait } from '../../types'
-import { ChevronDown, ChevronUp } from 'baseui/icon'
-import NFTLogo from '../NFTLogo'
 import OpenSeaIcon from '../OpenSeaIcon'
 
 type TraitsProps = {
   traits: Trait[]
 }
 const Traits = ({ traits }: TraitsProps) => {
-  const [css, theme] = useStyletron()
+  const [css] = useStyletron()
 
   if (!traits && !traits.length) {
     return <p>No traits found</p>
@@ -17,9 +15,10 @@ const Traits = ({ traits }: TraitsProps) => {
 
   return (
     <div>
-      {traits.map((trait) => {
+      {traits.map((trait, i) => {
         return (
           <div
+            key={i}
             className={css({
               display: 'flex',
               justifyContent: 'space-between',
@@ -31,7 +30,7 @@ const Traits = ({ traits }: TraitsProps) => {
               {trait.name}: {trait.value}
             </div>
             <div>
-              <a href={trait.openSeaURL} target="_blank">
+              <a href={trait.openSeaURL} target="_blank" rel="noreferrer">
                 <OpenSeaIcon />
               </a>
             </div>

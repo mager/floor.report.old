@@ -11,24 +11,24 @@ type CollectionProps = {
 }
 
 const Collections = ({ collections }: CollectionProps) => {
-  const [css, theme] = useStyletron()
+  const [css] = useStyletron()
 
   return (
     <Accordion
       overrides={{
         Header: {
-          style: ({ $theme }) => ({
+          style: () => ({
             padding: '0.5rem 0',
           }),
         },
         Root: {
-          style: ({ $theme }) => ({
+          style: () => ({
             padding: 0,
             margin: 0,
           }),
         },
         ToggleIcon: {
-          component: ({ $expanded, $theme }) =>
+          component: ({ $expanded }) =>
             $expanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />,
         },
         Content: {
@@ -41,6 +41,7 @@ const Collections = ({ collections }: CollectionProps) => {
     >
       {collections.map((collection, i) => (
         <Panel
+          key={i}
           title={
             <div
               className={css({
