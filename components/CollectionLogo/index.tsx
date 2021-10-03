@@ -7,6 +7,7 @@ type CollectionLogoProps = {
   collection: Collection
 }
 const CollectionLogo = ({ collection }: CollectionLogoProps) => {
+  // eslint-disable-next-line no-unused-vars
   const [_, theme] = useStyletron()
   return (
     <Avatar
