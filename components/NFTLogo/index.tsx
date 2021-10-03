@@ -7,8 +7,7 @@ type NFTLogoProps = {
   nft: NFT
 }
 const NFTLogo = ({ nft }: NFTLogoProps) => {
-  // eslint-disable-next-line no-unused-vars
-  const [_, theme] = useStyletron()
+  const [, theme] = useStyletron()
   return (
     <Avatar name={nft.name} src={nft.imageUrl} size={theme.sizing.scale1000} />
   )
