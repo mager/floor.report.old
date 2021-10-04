@@ -67,7 +67,16 @@ const Collections = ({ collections }: CollectionProps) => {
                   {collection.name}
                 </div>
               </div>
-              <div>{collection.floorPrice}Ξ</div>
+              <div
+                className={css({
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                })}
+              >
+                {collection.nfts.length * collection.floorPrice}Ξ (x
+                {collection.nfts.length})
+              </div>
             </div>
           }
         >

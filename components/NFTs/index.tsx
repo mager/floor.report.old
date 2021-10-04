@@ -61,16 +61,26 @@ const NFTs = ({ collection }: NFTsProps) => {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
+                      width: '100%',
                     })}
                   >
-                    <NFTLogo nft={nft} />
                     <div
                       className={css({
-                        padding: '0 0.5rem',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
                       })}
                     >
-                      {nft.name}
+                      <NFTLogo nft={nft} />
+                      <div
+                        className={css({
+                          padding: '0 0.5rem',
+                        })}
+                      >
+                        {nft.name}
+                      </div>
                     </div>
+                    <div>{collection.floorPrice}Ξ</div>
                   </div>
                 </div>
               }
