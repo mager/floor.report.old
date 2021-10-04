@@ -254,7 +254,9 @@ export const Home = (): JSX.Element => {
         ) : (
           <p className={css({ textAlign: 'center' })}>
             Connecting your wallet is only used to fetch the address, no
-            transactions will be made.
+            transactions will be made. Currently, we only support fetching 50
+            collections & 50 NFTs. Working on increasing this in the next
+            update.
           </p>
         )}
       </main>
