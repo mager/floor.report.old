@@ -25,7 +25,7 @@ const Header = ({ address, web3Provider, connect, disconnect }) => {
           fontFamily: 'Special Elite',
         })}
       >
-        floor.report 🧹
+        floor.report
       </h1>
       <div
         className={css({

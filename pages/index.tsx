@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useCallback, useEffect, useReducer } from 'react'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { providers } from 'ethers'
 import Head from 'next/head'
-import { useCallback, useEffect, useReducer } from 'react'
+import { useStyletron } from 'baseui'
+import { Spinner } from 'baseui/spinner'
 import WalletLink from 'walletlink'
 import Web3Modal from 'web3modal'
+
 import { StateType, ActionType } from '../types'
-import { Spinner } from 'baseui/spinner'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Collections from '../components/Collections'
+import Totals from '../components/Totals'
 
 const INFURA_ID = '9cc12c897b9e4f88b84f8d0b14ede1d3'
 
@@ -196,7 +199,9 @@ export const Home = (): JSX.Element => {
     if (address) {
       const fetchData = async () => {
         dispatch({ type: 'START_FETCHING_INFO' })
-        const response = await fetch(`/api/info?address=${address}`)
+        const response = await fetch(`/api/info?address=${address}`, {
+          cache: 'force-cache',
+        })
         const info = await response.json()
         dispatch({
           type: 'SET_INFO',
@@ -208,8 +213,16 @@ export const Home = (): JSX.Element => {
     }
   }, [address])
 
+  const [css] = useStyletron()
+
   return (
-    <div className="container">
+    <div
+      className={css({
+        padding: '0.5rem 1rem 2rem',
+        margin: '0 auto',
+        maxWidth: '1200px',
+      })}
+    >
       <Head>
         <title>floor.report</title>
         <link rel="icon" href="/favicon.ico" />
@@ -232,37 +245,31 @@ export const Home = (): JSX.Element => {
       />
       <main>
         {loading ? (
-          <Spinner />
+          <div className={css({ textAlign: 'center' })}>
+            <Spinner />
+          </div>
         ) : hasCollections ? (
-          <Collections collections={info.collections} />
+          <>
+            <Collections collections={info.collections} />
+            <Totals info={info} />
+          </>
         ) : (
-          <p>No collections found, get on OpenSea</p>
+          <p className={css({ textAlign: 'center' })}>
+            Connecting your wallet is only used to fetch the address, no
+            transactions will be made.
+          </p>
         )}
       </main>
-      <footer>
-        Created by <a href="https://twitter.com/mager">@mager</a>
-      </footer>
-      <style jsx>{`
-        main {
-          text-align: center;
-        }
+      <Footer />
 
-        .container {
-          padding: 0.5rem 1rem 2rem;
-          margin: 0 auto;
-          max-width: 1200px;
-        }
-
-        footer {
-          padding-top: 3em;
-          text-align: center;
-        }
-      `}</style>
       <style jsx global>{`
         html,
         body {
           padding: 0;
           margin: 0;
+          font-family: 'Barlow', sans-serif;
+        }
+        div {
           font-family: 'Barlow', sans-serif;
         }
 
