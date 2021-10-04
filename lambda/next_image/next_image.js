@@ -43,17 +43,26 @@ const handler = async (event) => {
   let isRemoteImage = false
   // Relative image
   if (parsedUrl.startsWith('/')) {
-    const protocol = event.headers['x-nf-connection-proto'] || event.headers['x-forwarded-proto'] || 'http'
-    imageUrl = `${protocol}://${event.headers.host || event.hostname}${parsedUrl}`
+    const protocol =
+      event.headers['x-nf-connection-proto'] ||
+      event.headers['x-forwarded-proto'] ||
+      'http'
+    imageUrl = `${protocol}://${
+      event.headers.host || event.hostname
+    }${parsedUrl}`
   } else {
     isRemoteImage = true
     // Remote images need to be in the allowlist
     let allowedDomains = config.domains || []
 
     if (process.env.NEXT_IMAGE_ALLOWED_DOMAINS) {
-      console.log('Combining `NEXT_IMAGE_ALLOWED_DOMAINS` with any domains found in `next.config.js`')
+      console.log(
+        'Combining `NEXT_IMAGE_ALLOWED_DOMAINS` with any domains found in `next.config.js`'
+      )
       allowedDomains = allowedDomains.concat(
-        process.env.NEXT_IMAGE_ALLOWED_DOMAINS.split(',').map((domain) => domain.trim()),
+        process.env.NEXT_IMAGE_ALLOWED_DOMAINS.split(',').map((domain) =>
+          domain.trim()
+        )
       )
     }
 
@@ -69,7 +78,9 @@ const handler = async (event) => {
   const imageData = await fetch(imageUrl)
 
   if (!imageData.ok) {
-    console.error(`Failed to download image ${imageUrl}. Status ${imageData.status} ${imageData.statusText}`)
+    console.error(
+      `Failed to download image ${imageUrl}. Status ${imageData.status} ${imageData.statusText}`
+    )
     return {
       statusCode: imageData.status,
       body: imageData.statusText,
@@ -96,7 +107,10 @@ const handler = async (event) => {
     }
   }
 
-  if (process.env.FORCE_WEBP_OUTPUT === 'true' || process.env.FORCE_WEBP_OUTPUT === '1') {
+  if (
+    process.env.FORCE_WEBP_OUTPUT === 'true' ||
+    process.env.FORCE_WEBP_OUTPUT === '1'
+  ) {
     ext = 'webp'
   }
 

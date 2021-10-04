@@ -12,7 +12,11 @@ const Footer = () => {
           <Icon
             overrides={{
               Svg: () => (
-                <a href="https://discord.gg/7CbtVQYf">
+                <a
+                  href="https://discord.gg/7CbtVQYf"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img
                     src={`/discord-light.svg`}
                     width="32"
@@ -28,7 +32,11 @@ const Footer = () => {
           <Icon
             overrides={{
               Svg: () => (
-                <a href="https://twitter.com/floor_report">
+                <a
+                  href="https://twitter.com/floor_report"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img
                     src={`/twitter-light.svg`}
                     width="32"
@@ -42,7 +50,18 @@ const Footer = () => {
         </Block>
       </Block>
       <Block>
-        Created by <a href="https://twitter.com/mager">@mager</a>
+        Created by{' '}
+        <a href="https://twitter.com/mager" target="_blank" rel="noreferrer">
+          @mager
+        </a>{' '}
+        |{' '}
+        <a
+          href="https://magerleagues.gitbook.io/floor-report/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          API
+        </a>
       </Block>
     </Block>
   )
