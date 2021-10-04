@@ -1,14 +1,7 @@
 import React from 'react'
 import { Block } from 'baseui/block'
 import { Icon } from 'baseui/icon'
-import { Grid, Cell } from 'baseui/layout-grid'
 import { useStyletron } from 'baseui'
-
-const itemProps = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}
 
 const Footer = () => {
   const [css] = useStyletron()

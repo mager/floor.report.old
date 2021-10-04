@@ -1,8 +1,8 @@
 import React from 'react'
-import { useStyletron, styled } from 'baseui'
+import { useStyletron } from 'baseui'
 
 const Totals = ({ info }) => {
-  const [css, theme] = useStyletron()
+  const [css] = useStyletron()
 
   return (
     <div
