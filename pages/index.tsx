@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useReducer } from 'react'
+import { useRouter } from 'next/router'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { providers } from 'ethers'
 import Head from 'next/head'
@@ -104,7 +105,10 @@ function reducer(state: StateType, action: ActionType): StateType {
 
 export const Home = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { provider, web3Provider, address, info, loading } = state
+  const { provider, web3Provider, info, loading } = state
+  const router = useRouter()
+
+  const address = router?.query?.address || state.address
   const connect = useCallback(async function () {
     // This is the initial `provider` that is returned when
     // using web3Modal to connect. Can be MetaMask or WalletConnect.
@@ -155,8 +159,6 @@ export const Home = (): JSX.Element => {
   useEffect(() => {
     if (provider?.on) {
       const handleAccountsChanged = (accounts: string[]) => {
-        // eslint-disable-next-line no-console
-        console.log('accountsChanged', accounts)
         dispatch({
           type: 'SET_ADDRESS',
           address: accounts[0],
@@ -164,17 +166,13 @@ export const Home = (): JSX.Element => {
       }
 
       const handleChainChanged = (accounts: string[]) => {
-        // eslint-disable-next-line no-console
-        console.log('accountsChanged', accounts)
         dispatch({
           type: 'SET_ADDRESS',
           address: accounts[0],
         })
       }
 
-      const handleDisconnect = (error: { code: number; message: string }) => {
-        // eslint-disable-next-line no-console
-        console.log('disconnect', error)
+      const handleDisconnect = () => {
         disconnect()
       }
 

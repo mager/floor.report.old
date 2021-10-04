@@ -20,9 +20,9 @@ const Disclaimer = () => {
           lineHeight: '1.5rem',
         })}
       >
-        Currently, we only support fetching 50 collections & 50 NFTs. Working on
-        increasing this in the next update. Polygon NFTs are not supported yet.
-        Please report any bugs or feature requests on{' '}
+        Currently, we only support fetching 50 collections & 250 NFTs. Working
+        on increasing this in the next update. Polygon NFTs are not supported
+        yet. Please report any bugs or feature requests on{' '}
         <a
           href="https://github.com/mager/floor.report/issues"
           target="_blank"
