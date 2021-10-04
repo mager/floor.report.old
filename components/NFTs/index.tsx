@@ -12,8 +12,8 @@ type NFTsProps = {
 const NFTs = ({ collection }: NFTsProps) => {
   const [css] = useStyletron()
 
-  if (!collection.nfts && !collection.nfts.length) {
-    return <p>No NFTs found</p>
+  if (!collection.nfts || collection.nfts.length === 0) {
+    return <p>No contract found</p>
   }
 
   return (

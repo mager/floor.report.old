@@ -8,7 +8,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   })
   const { address } = req.query
 
-  const url = `https://sweeper.floor.report/info`
+  const url = `http://localhost:8080/info`
+  // const url = `https://sweeper.floor.report/info`
   const response = await fetch(url, {
     headers,
     method: 'POST',
