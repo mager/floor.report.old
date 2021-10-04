@@ -13,7 +13,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     headers,
     method: 'POST',
     redirect: 'follow',
-    cache: 'force-cache',
     body: JSON.stringify({ address }),
   })
   const collections = await response.json()

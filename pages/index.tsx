@@ -199,9 +199,7 @@ export const Home = (): JSX.Element => {
     if (address) {
       const fetchData = async () => {
         dispatch({ type: 'START_FETCHING_INFO' })
-        const response = await fetch(`/api/info?address=${address}`, {
-          cache: 'force-cache',
-        })
+        const response = await fetch(`/api/info?address=${address}`)
         const info = await response.json()
         dispatch({
           type: 'SET_INFO',
