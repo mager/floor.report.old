@@ -17,7 +17,8 @@ const Totals = ({ info }) => {
     >
       <div>Unrealized Bag 💰</div>
       <div>
-        {info.unrealizedBagETH}Ξ (${info.unrealizedBagUSD})
+        {info.unrealizedBagETH}Ξ ($
+        {new Intl.NumberFormat().format(info.unrealizedBagUSD)})
       </div>
     </div>
   )

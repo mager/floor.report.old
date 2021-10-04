@@ -1,9 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "baseui"
-  ],
+  "plugins": ["@typescript-eslint", "baseui"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
