@@ -17,7 +17,7 @@ const Totals = ({ info }) => {
     >
       <div>Unrealized Bag 💰</div>
       <div>
-        {info.unrealizedBagETH} (${info.unrealizedBagUSD})
+        {info.unrealizedBagETH}Ξ (${info.unrealizedBagUSD})
       </div>
     </div>
   )
