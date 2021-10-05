@@ -80,8 +80,8 @@ const Collections = ({ collections }: CollectionProps) => {
                     alignItems: 'center',
                   })}
                 >
-                  {collection.nfts.length * collection.floorPrice}Ξ (x
-                  {collection.nfts.length})
+                  {collection.nfts?.length * collection.floorPrice}Ξ (x
+                  {collection.nfts?.length})
                 </div>
               </div>
             }
