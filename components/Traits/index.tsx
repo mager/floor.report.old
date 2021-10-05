@@ -9,7 +9,7 @@ type TraitsProps = {
 const Traits = ({ traits }: TraitsProps) => {
   const [css] = useStyletron()
 
-  if (!traits && !traits.length) {
+  if (!traits || traits.length === 0) {
     return <p>No traits found</p>
   }
 
