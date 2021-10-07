@@ -13,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     headers,
     method: 'POST',
     redirect: 'follow',
-    body: JSON.stringify({ address }),
+    body: JSON.stringify({ address, skipBQ: true }),
   })
   const collections = await response.json()
 
