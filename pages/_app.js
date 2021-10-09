@@ -1,14 +1,17 @@
 import App from 'next/app'
 import { Provider as StyletronProvider } from 'styletron-react'
 import { styletron } from '../styletron'
+import Providers from './providers'
 
 export default class FloorReport extends App {
   render() {
     const { Component, pageProps } = this.props
     return (
-      <StyletronProvider value={styletron}>
-        <Component {...pageProps} />
-      </StyletronProvider>
+      <Providers>
+        <StyletronProvider value={styletron}>
+          <Component {...pageProps} />
+        </StyletronProvider>
+      </Providers>
     )
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Notification } from 'baseui/notification'
+import { Notification, KIND } from 'baseui/notification'
 import { useStyletron } from 'baseui'
 
 const Disclaimer = () => {
@@ -8,9 +8,15 @@ const Disclaimer = () => {
   return (
     <Notification
       closeable
+      kind={KIND.positive}
       autoHideDuration={10000}
       overrides={{
-        Body: { style: { width: 'auto', textAlign: 'center' } },
+        Body: {
+          style: {
+            width: 'auto',
+            textAlign: 'center',
+          },
+        },
       }}
     >
       <p

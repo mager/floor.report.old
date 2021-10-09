@@ -209,7 +209,9 @@ export const Home = (): JSX.Element => {
     }
   }, [address])
 
-  const [css] = useStyletron()
+  const [css, theme] = useStyletron()
+  const backgroundColor =
+    theme.name === 'dark' ? theme.colors.backgroundAlt : 'transparent'
 
   return (
     <div
@@ -217,6 +219,7 @@ export const Home = (): JSX.Element => {
         padding: '0.5rem 1rem 2rem',
         margin: '0 auto',
         maxWidth: '1200px',
+        backgroundColor,
       })}
     >
       <Head>
@@ -266,7 +269,16 @@ export const Home = (): JSX.Element => {
           padding: 0;
           margin: 0;
           font-family: 'Barlow', sans-serif;
+          background: ${backgroundColor};
+          color: ${theme.name === 'light'
+            ? theme.colors.mono900
+            : theme.colors.mono100};
         }
+
+        a:visited {
+          color: ${theme.colors.accent};
+        }
+
         div {
           font-family: 'Barlow', sans-serif;
         }

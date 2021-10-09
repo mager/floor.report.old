@@ -4,9 +4,14 @@ import { Icon } from 'baseui/icon'
 import { useStyletron } from 'baseui'
 
 const Footer = () => {
-  const [css] = useStyletron()
+  const [css, theme] = useStyletron()
   return (
-    <Block className={css({ paddingTop: '2rem', textAlign: 'center' })}>
+    <Block
+      className={css({
+        paddingTop: '2rem',
+        textAlign: 'center',
+      })}
+    >
       <Block display="flex" alignItems="center" justifyContent="center">
         <Block className={css({ padding: '0.5rem' })}>
           <Icon
@@ -18,7 +23,7 @@ const Footer = () => {
                   rel="noreferrer"
                 >
                   <img
-                    src={`/discord-light.svg`}
+                    src={`/discord-${theme.name}.svg`}
                     width="32"
                     height="32"
                     alt="Discord"
@@ -38,7 +43,7 @@ const Footer = () => {
                   rel="noreferrer"
                 >
                   <img
-                    src={`/twitter-light.svg`}
+                    src={`/twitter-${theme.name}.svg`}
                     width="32"
                     height="32"
                     alt="Twitter"
