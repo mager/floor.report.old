@@ -1,11 +1,12 @@
 import React from 'react'
 import { useStyletron } from 'baseui'
+import { Block } from 'baseui/block'
 
 const Totals = ({ info }) => {
   const [css] = useStyletron()
 
   return (
-    <div
+    <Block
       className={css({
         display: 'flex',
         justifyContent: 'space-between',
@@ -15,12 +16,12 @@ const Totals = ({ info }) => {
         fontWeight: '700',
       })}
     >
-      <div>Unrealized Bag 💰</div>
-      <div>
+      <Block>Unrealized Bag 💰</Block>
+      <Block>
         {info.unrealizedBagETH}Ξ ($
         {new Intl.NumberFormat().format(info.unrealizedBagUSD)})
-      </div>
-    </div>
+      </Block>
+    </Block>
   )
 }
 

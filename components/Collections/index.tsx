@@ -49,7 +49,7 @@ const Collections = ({ collections }: CollectionProps) => {
           <Panel
             key={i}
             title={
-              <div
+              <Block
                 className={css({
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -57,7 +57,7 @@ const Collections = ({ collections }: CollectionProps) => {
                   width: '100%',
                 })}
               >
-                <div
+                <Block
                   className={css({
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -65,15 +65,15 @@ const Collections = ({ collections }: CollectionProps) => {
                   })}
                 >
                   <CollectionLogo collection={collection} />
-                  <div
+                  <Block
                     className={css({
                       padding: '0 0.5rem',
                     })}
                   >
                     {collection.name}
-                  </div>
-                </div>
-                <div
+                  </Block>
+                </Block>
+                <Block
                   className={css({
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -82,8 +82,8 @@ const Collections = ({ collections }: CollectionProps) => {
                 >
                   {collection.nfts?.length * collection.floorPrice}Ξ (x
                   {collection.nfts?.length})
-                </div>
-              </div>
+                </Block>
+              </Block>
             }
           >
             <NFTs collection={collection} />

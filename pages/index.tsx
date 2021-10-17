@@ -4,6 +4,7 @@ import WalletConnectProvider from '@walletconnect/web3-provider'
 import { providers } from 'ethers'
 import Head from 'next/head'
 import { useStyletron } from 'baseui'
+import { Block } from 'baseui/block'
 import { Spinner } from 'baseui/spinner'
 import WalletLink from 'walletlink'
 import Web3Modal from 'web3modal'
@@ -214,7 +215,7 @@ export const Home = (): JSX.Element => {
     theme.name === 'dark' ? theme.colors.backgroundAlt : 'transparent'
 
   return (
-    <div
+    <Block
       className={css({
         padding: '0.5rem 1rem 2rem',
         margin: '0 auto',
@@ -241,24 +242,26 @@ export const Home = (): JSX.Element => {
         connect={connect}
         disconnect={disconnect}
         address={address}
+        username={info?.username}
+        photo={info?.photo}
       />
       <main>
         {loading ? (
-          <div className={css({ textAlign: 'center' })}>
+          <Block className={css({ textAlign: 'center' })}>
             <Spinner />
-          </div>
+          </Block>
         ) : hasCollections ? (
           <>
             <Collections collections={info.collections} />
             <Totals info={info} />
           </>
         ) : (
-          <div className={css({ textAlign: 'center' })}>
+          <Block className={css({ textAlign: 'center' })}>
             <p>
               Connecting your wallet is only used to fetch the address, no
               transactions will be made.
             </p>
-          </div>
+          </Block>
         )}
       </main>
       <Footer />
@@ -279,7 +282,7 @@ export const Home = (): JSX.Element => {
           color: ${theme.colors.accent};
         }
 
-        div {
+        Block {
           font-family: 'Barlow', sans-serif;
         }
 
@@ -287,7 +290,7 @@ export const Home = (): JSX.Element => {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+    </Block>
   )
 }
 

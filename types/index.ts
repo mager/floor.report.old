@@ -25,6 +25,7 @@ export type Info = {
   collections: Array<Collection>
   unrealizedBag: number
   username: string
+  photo: string
 }
 
 export type StateType = {

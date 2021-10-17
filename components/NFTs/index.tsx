@@ -2,6 +2,7 @@ import React from 'react'
 import { useStyletron } from 'baseui'
 import { Collection } from '../../types'
 import { Accordion, Panel } from 'baseui/accordion'
+import { Block } from 'baseui/block'
 import { ChevronDown, ChevronUp } from 'baseui/icon'
 import NFTLogo from '../NFTLogo'
 import Traits from '../Traits'
@@ -17,7 +18,7 @@ const NFTs = ({ collection }: NFTsProps) => {
   }
 
   return (
-    <div>
+    <Block>
       <Accordion
         overrides={{
           Root: {
@@ -48,7 +49,7 @@ const NFTs = ({ collection }: NFTsProps) => {
             <Panel
               key={i}
               title={
-                <div
+                <Block
                   className={css({
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -56,7 +57,7 @@ const NFTs = ({ collection }: NFTsProps) => {
                     width: '100%',
                   })}
                 >
-                  <div
+                  <Block
                     className={css({
                       display: 'flex',
                       justifyContent: 'space-between',
@@ -64,7 +65,7 @@ const NFTs = ({ collection }: NFTsProps) => {
                       width: '100%',
                     })}
                   >
-                    <div
+                    <Block
                       className={css({
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -72,17 +73,17 @@ const NFTs = ({ collection }: NFTsProps) => {
                       })}
                     >
                       <NFTLogo nft={nft} />
-                      <div
+                      <Block
                         className={css({
                           padding: '0 0.5rem',
                         })}
                       >
                         {nft.name}
-                      </div>
-                    </div>
-                    <div>{collection.floorPrice}Ξ</div>
-                  </div>
-                </div>
+                      </Block>
+                    </Block>
+                    <Block>{collection.floorPrice}Ξ</Block>
+                  </Block>
+                </Block>
               }
             >
               <Traits traits={nft.traits} />
@@ -90,7 +91,7 @@ const NFTs = ({ collection }: NFTsProps) => {
           )
         })}
       </Accordion>
-    </div>
+    </Block>
   )
 }
 

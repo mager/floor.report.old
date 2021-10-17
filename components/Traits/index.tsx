@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStyletron } from 'baseui'
+import { Block } from 'baseui/block'
 import { Trait } from '../../types'
 import OpenSeaIcon from '../OpenSeaIcon'
 
@@ -14,10 +15,10 @@ const Traits = ({ traits }: TraitsProps) => {
   }
 
   return (
-    <div>
+    <Block>
       {traits.map((trait, i) => {
         return (
-          <div
+          <Block
             key={i}
             className={css({
               display: 'flex',
@@ -26,18 +27,18 @@ const Traits = ({ traits }: TraitsProps) => {
               width: '100%',
             })}
           >
-            <div>
+            <Block>
               {trait.name}: {trait.value}
-            </div>
-            <div>
+            </Block>
+            <Block>
               <a href={trait.openSeaURL} target="_blank" rel="noreferrer">
                 <OpenSeaIcon />
               </a>
-            </div>
-          </div>
+            </Block>
+          </Block>
         )
       })}
-    </div>
+    </Block>
   )
 }
 
