@@ -18,7 +18,7 @@ const Footer = () => {
             overrides={{
               Svg: () => (
                 <a
-                  href="https://discord.gg/7CbtVQYf"
+                  href="https://discord.gg/9wTgVdbRWm"
                   target="_blank"
                   rel="noreferrer"
                 >
