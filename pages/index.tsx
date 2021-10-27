@@ -217,7 +217,7 @@ export const Home = (): JSX.Element => {
   return (
     <Block
       className={css({
-        padding: '0.5rem 1rem 2rem',
+        padding: '1.5rem 1rem',
         margin: '0 auto',
         maxWidth: '1200px',
         backgroundColor,

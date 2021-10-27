@@ -27,8 +27,9 @@ const Disclaimer = () => {
         })}
       >
         Currently, we only support fetching 50 collections & 250 NFTs. Polygon
-        NFTs are not supported yet. Please report any bugs or feature requests
-        on{' '}
+        NFTs are not supported yet. NFTs without a contract are not supported
+        yet. Trait floor prices coming soon. Please report any bugs or feature
+        requests on{' '}
         <a
           href="https://github.com/mager/floor.report/issues"
           target="_blank"
