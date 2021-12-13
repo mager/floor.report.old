@@ -11,7 +11,7 @@ const CollectionLogo = ({ collection }: CollectionLogoProps) => {
   return (
     <Avatar
       name={collection.name}
-      src={collection.imageUrl}
+      // src={collection.imageUrl}
       size={theme.sizing.scale1000}
     />
   )

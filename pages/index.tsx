@@ -253,7 +253,8 @@ export const Home = (): JSX.Element => {
         ) : hasCollections ? (
           <>
             <Collections collections={info.collections} />
-            <Totals info={info} />
+            {/* <Totals info={info} /> */}
+            <Totals />
           </>
         ) : (
           <Block className={css({ textAlign: 'center' })}>

@@ -1,21 +1,22 @@
 import React from 'react'
-import { useStyletron } from 'baseui'
-import { Collection } from '../../types'
-import { Accordion, Panel } from 'baseui/accordion'
+// import { useStyletron } from 'baseui'
+// import { Collection } from '../../types'
+import { Accordion } from 'baseui/accordion'
+// import { Accordion, Panel } from 'baseui/accordion'
 import { Block } from 'baseui/block'
 import { ChevronDown, ChevronUp } from 'baseui/icon'
-import NFTLogo from '../NFTLogo'
-import Traits from '../Traits'
+// import NFTLogo from '../NFTLogo'
+// import Traits from '../Traits'
 
-type NFTsProps = {
-  collection: Collection
-}
-const NFTs = ({ collection }: NFTsProps) => {
-  const [css] = useStyletron()
+// type NFTsProps = {
+//   collection: Collection
+// }
+const NFTs = () => {
+  // const [css] = useStyletron()
 
-  if (!collection.nfts || collection.nfts.length === 0) {
-    return <p>No contract found</p>
-  }
+  // if (!collection.nfts || collection.nfts.length === 0) {
+  //   return <p>No contract found</p>
+  // }
 
   return (
     <Block>
@@ -44,7 +45,7 @@ const NFTs = ({ collection }: NFTsProps) => {
           },
         }}
       >
-        {collection.nfts.map((nft, i) => {
+        {/* {collection.nfts.map((nft, i) => {
           return (
             <Panel
               key={i}
@@ -89,7 +90,7 @@ const NFTs = ({ collection }: NFTsProps) => {
               <Traits traits={nft.traits} />
             </Panel>
           )
-        })}
+        })} */}
       </Accordion>
     </Block>
   )
