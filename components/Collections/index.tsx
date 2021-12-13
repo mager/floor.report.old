@@ -1,12 +1,12 @@
 import React from 'react'
 import { useStyletron } from 'baseui'
-import { Accordion, Panel } from 'baseui/accordion'
+// import { Accordion, Panel } from 'baseui/accordion'
 import { Block } from 'baseui/block'
-import { ChevronDown, ChevronUp } from 'baseui/icon'
+// import { ChevronDown, ChevronUp } from 'baseui/icon'
 import { Collection } from '../../types'
 import CollectionLogo from '../CollectionLogo'
 import Disclaimer from '../Disclaimer'
-import NFTs from '../NFTs'
+// import NFTs from '../NFTs'
 
 type CollectionProps = {
   collections: Collection[]
@@ -20,7 +20,7 @@ const Collections = ({ collections }: CollectionProps) => {
       <Block className={css({ textAlign: 'center' })}>
         <Disclaimer />
       </Block>
-      <Accordion
+      {/* <Accordion
         overrides={{
           Header: {
             style: () => ({
@@ -44,52 +44,49 @@ const Collections = ({ collections }: CollectionProps) => {
             }),
           },
         }}
-      >
-        {collections.map((collection, i) => (
-          <Panel
-            key={i}
-            title={
+      > */}
+      {collections.map((collection, i) => (
+        <Block key={i}>
+          <Block
+            className={css({
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              width: '100%',
+            })}
+          >
+            <Block
+              className={css({
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              })}
+            >
+              <CollectionLogo collection={collection} />
               <Block
                 className={css({
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  width: '100%',
+                  padding: '0 0.5rem',
                 })}
               >
-                <Block
-                  className={css({
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  })}
-                >
-                  <CollectionLogo collection={collection} />
-                  <Block
-                    className={css({
-                      padding: '0 0.5rem',
-                    })}
-                  >
-                    {collection.name}
-                  </Block>
-                </Block>
-                <Block
-                  className={css({
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  })}
-                >
-                  {collection.nfts?.length * collection.floorPrice}Ξ (x
-                  {collection.nfts?.length})
-                </Block>
+                {collection.name}
               </Block>
-            }
-          >
-            <NFTs collection={collection} />
-          </Panel>
-        ))}
-      </Accordion>
+            </Block>
+            <Block
+              className={css({
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              })}
+            >
+              {collection.floor}Ξ
+              {/* {collection.nfts?.length * collection.floorPrice}Ξ (x
+              {collection.nfts?.length}) */}
+            </Block>
+          </Block>
+          {/* <NFTs collection={collection} /> */}
+        </Block>
+      ))}
+      {/* </Accordion> */}
     </Block>
   )
 }

@@ -1,11 +1,13 @@
 export type Collection = {
   name: string
-  floorPrice: number
-  imageUrl: string
-  nfts: NFT[]
-  unrealizedValue: number
-  ownedAssetCount: number
-  openSeaURL: string
+  slug: string
+  floor: number
+  updated: Date
+  // imageUrl: string
+  // nfts: NFT[]
+  // unrealizedValue: number
+  // ownedAssetCount: number
+  // openSeaURL: string
 }
 
 export type Trait = {

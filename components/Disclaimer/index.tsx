@@ -26,8 +26,8 @@ const Disclaimer = () => {
           lineHeight: '1.5rem',
         })}
       >
-        There&rsquo;s currently an issue with OpenSea&rsquo;s API where all
-        floor prices are 0. Looking into it...
+        I figured out a new solution for fetching floor prices. If you see a
+        floor of -1, try refreshing.
       </p>
       <p
         className={css({

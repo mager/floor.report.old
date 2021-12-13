@@ -2,7 +2,7 @@ import React from 'react'
 import { useStyletron } from 'baseui'
 import { Block } from 'baseui/block'
 
-const Totals = ({ info }) => {
+const Totals = () => {
   const [css] = useStyletron()
 
   return (
@@ -18,8 +18,9 @@ const Totals = ({ info }) => {
     >
       <Block>Unrealized Bag 💰</Block>
       <Block>
-        {info.unrealizedBagETH}Ξ ($
-        {new Intl.NumberFormat().format(info.unrealizedBagUSD)})
+        Coming Soon
+        {/* {info.unrealizedBagETH}Ξ ($
+        {new Intl.NumberFormat().format(info.unrealizedBagUSD)}) */}
       </Block>
     </Block>
   )
