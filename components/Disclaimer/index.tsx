@@ -27,7 +27,17 @@ const Disclaimer = () => {
         })}
       >
         I figured out a new solution for fetching floor prices. If you see a
-        floor of -1, try refreshing.
+        floor of -1, come back in about 6 hours and try refreshing. Still need
+        to add NFT quantities and the total at the bottom. More updates soon!
+        Join our{' '}
+        <a
+          href="https://discord.gg/MqsRYeQWqa"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Discord
+        </a>{' '}
+        to provide feedback.
       </p>
       <p
         className={css({
