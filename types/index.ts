@@ -2,8 +2,8 @@ export type Collection = {
   name: string
   slug: string
   floor: number
+  thumb: string
   updated: Date
-  // imageUrl: string
   // nfts: NFT[]
   // unrealizedValue: number
   // ownedAssetCount: number

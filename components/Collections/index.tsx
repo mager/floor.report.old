@@ -52,6 +52,7 @@ const Collections = ({ collections }: CollectionProps) => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
+              margin: '10px 0',
               width: '100%',
             })}
           >
