@@ -7,9 +7,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     'Content-Type': 'application/json',
   })
   const { address } = req.query
+  const path =
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:8080'
+      : 'https://sweeper.floor.report'
 
-  const url = `http://localhost:8080/v2/info`
-  // const url = `https://sweeper.floor.report/v2/info`
+  const url = `${path}/v2/info`
   const response = await fetch(url, {
     headers,
     method: 'POST',
